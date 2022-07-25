@@ -7,6 +7,10 @@ public class ItemData {
     protected String organizationCode;
     protected String productLine;
 
+    public ItemData() {
+
+    }
+
     public String getItemId() {
         return itemId;
     }
@@ -37,14 +41,5 @@ public class ItemData {
        this.setProductLine(productLine);
     }
 
-    @DataProvider(name = "itemData-provider")
-    public Object[][] itemData(){
-        //return new Object[][]{{"Scenario"}};
-        return new Object[][]{
-                {new ItemData("3900210","WS","CMO")},
-                {new ItemData("3900211","WS","CMO")},
-                {new ItemData("3900212","WS","CMO")},
-        };
 
-    }
 }

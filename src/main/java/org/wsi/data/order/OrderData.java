@@ -1,7 +1,9 @@
 package org.wsi.data.order;
 
 import org.testng.annotations.DataProvider;
+import org.wsi.dataprovider.orderdataprovider.OrderDataProvider;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,10 @@ public class OrderData {
     protected String orderHeaderKey;
     protected String billToKey;
     protected String shipToKey;
+
+    public OrderData() {
+
+    }
 
     public String getOrderNo() {
         return orderNo;
@@ -45,28 +51,19 @@ public class OrderData {
         this.shipToKey = shipToKey;
     }
 
-    public OrderData(String orderNo, String orderHeaderKey, String billToKey, String shipToKey){
+    public OrderData(String orderNo, String orderHeaderKey, String billToKey, String shipToKey) {
         this.setOrderNo(orderNo);
         this.setOrderHeaderKey(orderHeaderKey);
         this.setBillToKey(billToKey);
         this.setShipToKey(shipToKey);
     }
 
-    public List<OrderData> getOrderList(){
+    public List<OrderData> getOrderList() {
         //int OrderClass;
         return new ArrayList<OrderData>();
     }
 
-
-    @DataProvider(name = "orderData-provider")
-    public Object[][] orderData(){
-        //return new Object[][]{{"Scenario"}};
-        return new Object[][]{
-                {new OrderData("37898712789","202289218018098","Bill01","Bill01")},
-                {new OrderData("47898712789","202289218018099","Bill02","Bill02")},
-                {new OrderData("57898712789","202289218018100","Bill03","Bill03")}
-        };
-
-    }
-
 }
+
+
+
