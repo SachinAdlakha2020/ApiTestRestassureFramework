@@ -23,7 +23,7 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.6.0</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -31,7 +31,14 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>5.0.0</version>
-      <scope>test</scope>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-schema-validator</artifactId>
+      <version>3.0.0</version>
+      <scope>compile</scope>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
