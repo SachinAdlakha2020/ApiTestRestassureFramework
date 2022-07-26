@@ -10,21 +10,21 @@ import java.util.ArrayList;
 
 public class ItemDataProvider {
 
-    private static ArrayList<ItemData> getItemDataFromExcel() throws IOException {
+    public static ArrayList<ItemData> getItemDataFromExcel() throws IOException {
 
-        String filePath= System.getProperty("user.dir") + "/src/testdata/Item/itemTestData.xlsx";
+        String filePath = System.getProperty("user.dir") + "/src/testdata/Item/itemTestData.xlsx";
 
-        Object[][] excelData = DataFromExcel.ReadDataFromExcel(filePath,"itemData");
+        Object[][] excelData = DataFromExcel.ReadDataFromExcel(filePath, "itemData");
 
-        ArrayList<ItemData> dataList=new ArrayList<>();
+        ArrayList<ItemData> dataList = new ArrayList<>();
 
         for (Object[] excelDatum : excelData) {
-            ItemData data=new ItemData();
+            ItemData data = new ItemData();
             for (int i = 0; i < excelDatum.length; i++) {
 
-                if(i==0) data.setItemId(excelDatum[i].toString());
-                if(i==1) data.setOrganizationCode(excelDatum[i].toString());
-                if(i==2) data.setProductLine(excelDatum[i].toString());
+                if (i == 0) data.setItemId(excelDatum[i].toString());
+                if (i == 1) data.setOrganizationCode(excelDatum[i].toString());
+                if (i == 2) data.setProductLine(excelDatum[i].toString());
 
             }
             dataList.add(data);
@@ -32,15 +32,14 @@ public class ItemDataProvider {
         return dataList;
     }
 
-
     @DataProvider(name = "itemData-provider")
-    public Object[][] itemData(){
-        //return new Object[][]{{"Scenario"}};
-        return new Object[][]{
-                {new ItemData("3900210","WS","CMO")},
-                {new ItemData("3900211","WS","CMO")},
-                {new ItemData("3900212","WS","CMO")},
-        };
+    public Object[][] itemData() throws IOException {
+        ArrayList<ItemData> itemData= getItemDataFromExcel();
+        Object[][] testData=new Object[itemData.size()][];
+        for (int i = 0; i < itemData.size(); i++) {
+            testData[i] = new Object[]{itemData.get(i)};
+        }
+        return testData;
 
     }
 
